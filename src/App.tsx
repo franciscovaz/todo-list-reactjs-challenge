@@ -7,6 +7,7 @@ import styles from './App.module.css';
 import './global.css'
 import { useState } from 'react';
 import { EmptyList } from './components/List/EmptyList'
+import { Task } from './components/List/Task'
 
 interface Task {
   id: number;
@@ -43,7 +44,13 @@ function App() {
 
             { tasksList.length === 0 
               ? <EmptyList /> 
-              : <TasksList />}
+              : (
+                <>
+                  <Task />
+                  <Task />
+                  <Task />
+                </>   
+              )}
         </div>
       </section>
     </main>
