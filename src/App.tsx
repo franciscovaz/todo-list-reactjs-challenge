@@ -1,12 +1,12 @@
 import './App.module.css'
 import { Header } from './components/Header'
 import { NewTask } from './components/NewTask'
-import { TasksList } from './components/TasksList'
+import { TasksList } from './components/List/TasksList'
 import { TasksHeader } from './components/TasksHeader'
 import styles from './App.module.css';
 import './global.css'
 import { useState } from 'react';
-import { EmptyList } from './components/EmptyList'
+import { EmptyList } from './components/List/EmptyList'
 
 interface Task {
   id: number;
