@@ -28,7 +28,7 @@ function App() {
       isChecked: false,
     }
   ]
-  const [tasksList, setTasksList] = useState([mockedTasks]);
+  const [tasksList, setTasksList] = useState([]);
 
   return (
     <main>
