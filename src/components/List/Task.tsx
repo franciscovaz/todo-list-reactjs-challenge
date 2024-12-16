@@ -13,17 +13,17 @@ export function Task() {
             <div>
                 <label htmlFor="checkbox">
                     <input type="checkbox" readOnly checked={false} />
-                    <span>
+                    <span className={styles.checkbox}>
                         <Check size={12}/> 
                     </span>
 
-                    <p>
+                    <p className={styles.paragraph}>
                         Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.
                     </p>
                 </label>
             </div>
             <button onClick={handleRemoveTask}>
-                <Trash size={16} />
+                <Trash size={16} color="#808080" />
             </button>
         </div>
     )

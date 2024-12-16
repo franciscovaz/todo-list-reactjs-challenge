@@ -42,15 +42,17 @@ function App() {
         <div className={styles.tasksList}>
             <TasksHeader/>
 
-            { tasksList.length === 0 
-              ? <EmptyList /> 
-              : (
-                <>
-                  <Task />
-                  <Task />
-                  <Task />
-                </>   
-              )}
+            <div>
+              { tasksList.length === 0 
+                ? <EmptyList /> 
+                : (
+                  <>
+                    <Task />
+                    <Task />
+                    <Task />
+                  </>   
+                )}
+            </div>
         </div>
       </section>
     </main>
