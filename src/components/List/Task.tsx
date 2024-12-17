@@ -1,7 +1,8 @@
+import { TaskItem } from '../../App';
 import styles from './Task.module.css';
 import { Check, Trash } from 'phosphor-react';
 
-export function Task() {
+export function Task({description, isChecked}: TaskItem) {
 
     function handleRemoveTask() {
         console.log('Remove task!');
@@ -12,13 +13,13 @@ export function Task() {
         <div className={styles.container}>
             <div>
                 <label htmlFor="checkbox">
-                    <input type="checkbox" readOnly checked={false} />
+                    <input type="checkbox" readOnly checked={isChecked} />
                     <span className={styles.checkbox}>
                         <Check size={12}/> 
                     </span>
 
                     <p className={styles.paragraph}>
-                        Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.
+                        {description}
                     </p>
                 </label>
             </div>
