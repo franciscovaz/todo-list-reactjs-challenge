@@ -59,7 +59,10 @@ function App() {
                 tasksList.length === 0 
                 ? <EmptyList /> 
                 : tasksList.map(task => (
-                  <Task key={task.id} description={task.description} isChecked={task.isChecked}/>
+                  <Task 
+                    key={task.id} 
+                    description={task.description} 
+                    isChecked={task.isChecked}/>
                 ))}
             </div>
         </div>
