@@ -2,19 +2,20 @@ import styles from './TasksHeader.module.css';
 
 interface TaskHeaderProps {
     createdTasksAmount: number;
+    checkedTasksAmount: number;
 }
 
-export function TasksHeader( {createdTasksAmount}: TaskHeaderProps) {
+export function TasksHeader( {createdTasksAmount, checkedTasksAmount}: TaskHeaderProps) {
     return (
         <header className={styles.container}>
             <section>
-                <p>Tarefas criadas</p>
+                <p>Created Tasks</p>
                 <span>{ createdTasksAmount }</span>
             </section>
 
             <section>
-                <p>Tarefas concluidas</p>
-                <span>0</span>
+                <p>Finished Tasks</p>
+                <span>{ checkedTasksAmount } of { createdTasksAmount }</span>
             </section>
         </header>
     )

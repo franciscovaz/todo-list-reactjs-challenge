@@ -31,6 +31,9 @@ function App() {
 
   const [createdTasks, setCreatedTasks] = useState(tasksList.length);
 
+  const checkedTasks = tasksList.filter(task => task.isChecked).length;
+
+
   function newTask(taskContent: string) {
     const taskToAdd: TaskItem = {
       id: tasksList.length +1,
@@ -56,7 +59,7 @@ function App() {
         </div>
 
         <div className={styles.tasksList}>
-            <TasksHeader createdTasksAmount={createdTasks} />
+            <TasksHeader createdTasksAmount={createdTasks} checkedTasksAmount={checkedTasks} />
 
             <div>
               {
