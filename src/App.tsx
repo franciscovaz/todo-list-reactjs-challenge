@@ -29,6 +29,8 @@ function App() {
   ]
   const [tasksList, setTasksList] = useState(mockedTasks);
 
+  const [createdTasks, setCreatedTasks] = useState(tasksList.length);
+
   function newTask(taskContent: string) {
     const taskToAdd: TaskItem = {
       id: tasksList.length +1,
@@ -40,6 +42,8 @@ function App() {
         ...tasksList, 
         taskToAdd
       ])
+
+      setCreatedTasks(createdTasks + 1);
   }
 
   return (
@@ -52,7 +56,7 @@ function App() {
         </div>
 
         <div className={styles.tasksList}>
-            <TasksHeader/>
+            <TasksHeader createdTasksAmount={createdTasks} />
 
             <div>
               {

@@ -1,11 +1,15 @@
 import styles from './TasksHeader.module.css';
 
-export function TasksHeader() {
+interface TaskHeaderProps {
+    createdTasksAmount: number;
+}
+
+export function TasksHeader( {createdTasksAmount}: TaskHeaderProps) {
     return (
         <header className={styles.container}>
             <section>
                 <p>Tarefas criadas</p>
-                <span>0</span>
+                <span>{ createdTasksAmount }</span>
             </section>
 
             <section>
