@@ -1,7 +1,6 @@
 import './App.module.css'
 import { Header } from './components/Header'
 import { NewTask } from './components/NewTask'
-import { TasksList } from './components/List/TasksList'
 import { TasksHeader } from './components/TasksHeader'
 import styles from './App.module.css';
 import './global.css'
@@ -10,7 +9,7 @@ import { EmptyList } from './components/List/EmptyList'
 import { Task } from './components/List/Task'
 
 export interface TaskItem {
-  id: number;
+  id?: number;
   description: string;
   isChecked: boolean;
 }
@@ -60,7 +59,7 @@ function App() {
                 tasksList.length === 0 
                 ? <EmptyList /> 
                 : tasksList.map(task => (
-                  <p key={task.id}>{task.description}</p>
+                  <Task key={task.id} description={task.description} isChecked={task.isChecked}/>
                 ))}
             </div>
         </div>

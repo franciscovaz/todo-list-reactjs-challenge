@@ -2,6 +2,7 @@ import { TaskItem } from '../../App';
 import styles from './Task.module.css';
 import { Check, Trash } from 'phosphor-react';
 
+
 export function Task({description, isChecked}: TaskItem) {
 
     function handleRemoveTask() {
