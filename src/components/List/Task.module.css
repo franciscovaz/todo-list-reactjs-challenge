@@ -50,6 +50,7 @@
   .checkbox-checked {
     border: 2px solid var(--purple-dark);
     background-color: var(--purple-dark);
+    color: white;
   }
   
   .checkbox-checked:hover {
