@@ -26,10 +26,10 @@ export function NewTask({onCreateNewTask}: NewTaskProps) {
                     type="text" 
                     value={taskContent}
                     onChange={handleNewTaskContentChange}
-                    placeholder='Adicione uma nova tarefa'
+                    placeholder='Add new task'
                     required/>
                 <button>
-                    Criar
+                    Create
                     <PlusCircle />
                 </button>
             </section>

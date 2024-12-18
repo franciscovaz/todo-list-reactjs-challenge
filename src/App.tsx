@@ -16,9 +16,7 @@ export interface TaskItem {
 
 function App() {
   const [tasks, setTasks] = useState<TaskItem[]>([]);
-
   const [createdTasks, setCreatedTasks] = useState(tasks.length);
-
   const checkedTasks = tasks.filter(task => task.isChecked).length;
 
   function newTask(taskContent: string) {
@@ -27,19 +25,12 @@ function App() {
       description: taskContent,
       isChecked: false,
     }
-    setTasks(
-      [
-        ...tasks, 
-        taskToAdd
-      ])
-
-      setCreatedTasks(createdTasks + 1);
+    setTasks([...tasks, taskToAdd])
+    setCreatedTasks(createdTasks + 1);
   }
 
   function deleteTask(id: number) {
-    const tasksListWithoutDeletedOne = tasks.filter(task => {
-      return task.id !== id;
-    })
+    const tasksListWithoutDeletedOne = tasks.filter(task => task.id !== id)
 
     setTasks(tasksListWithoutDeletedOne)
   }
