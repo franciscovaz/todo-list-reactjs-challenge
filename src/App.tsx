@@ -15,21 +15,21 @@ export interface TaskItem {
 }
 
 function App() {
-  const [tasksList, setTasksList] = useState<TaskItem[]>([]);
+  const [tasks, setTasks] = useState<TaskItem[]>([]);
 
-  const [createdTasks, setCreatedTasks] = useState(tasksList.length);
+  const [createdTasks, setCreatedTasks] = useState(tasks.length);
 
-  const checkedTasks = tasksList.filter(task => task.isChecked).length;
+  const checkedTasks = tasks.filter(task => task.isChecked).length;
 
   function newTask(taskContent: string) {
     const taskToAdd: TaskItem = {
-      id: tasksList.length +1,
+      id: tasks.length +1,
       description: taskContent,
       isChecked: false,
     }
-    setTasksList(
+    setTasks(
       [
-        ...tasksList, 
+        ...tasks, 
         taskToAdd
       ])
 
@@ -37,15 +37,15 @@ function App() {
   }
 
   function deleteTask(id: number) {
-    const tasksListWithoutDeletedOne = tasksList.filter(task => {
+    const tasksListWithoutDeletedOne = tasks.filter(task => {
       return task.id !== id;
     })
 
-    setTasksList(tasksListWithoutDeletedOne)
+    setTasks(tasksListWithoutDeletedOne)
   }
 
   function toggleTask(id: number, isChecked: boolean) {    
-    const tasksListWithNewCheckState = tasksList.map((task) => {
+    const tasksListWithNewCheckState = tasks.map((task) => {
       if(task.id === id) {
         return { ...task, isChecked }
       }
@@ -53,7 +53,7 @@ function App() {
       return { ...task };
     })
 
-    setTasksList(tasksListWithNewCheckState);
+    setTasks(tasksListWithNewCheckState);
   }
 
   return (
@@ -70,9 +70,9 @@ function App() {
 
             <div>
               {
-                tasksList.length === 0 
+                tasks.length === 0 
                 ? <EmptyList /> 
-                : tasksList.map(task => (
+                : tasks.map(task => (
                   <Task 
                     key={task.id} 
                     id={task.id} 
