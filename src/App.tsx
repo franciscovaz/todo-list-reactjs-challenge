@@ -9,7 +9,7 @@ import { EmptyList } from './components/List/EmptyList'
 import { Task } from './components/List/Task'
 
 export interface TaskItem {
-  id?: number;
+  id: number;
   description: string;
   isChecked: boolean;
 }
@@ -33,7 +33,6 @@ function App() {
 
   const checkedTasks = tasksList.filter(task => task.isChecked).length;
 
-
   function newTask(taskContent: string) {
     const taskToAdd: TaskItem = {
       id: tasksList.length +1,
@@ -49,6 +48,13 @@ function App() {
       setCreatedTasks(createdTasks + 1);
   }
 
+  function deleteTask(id: number) {
+    const tasksListWithoutDeletedOne = tasksList.filter(task => {
+      return task.id !== id;
+    })
+
+    setTasksList(tasksListWithoutDeletedOne)
+  }
   return (
     <main>
       <Header />
@@ -68,8 +74,10 @@ function App() {
                 : tasksList.map(task => (
                   <Task 
                     key={task.id} 
+                    id={task.id} 
                     description={task.description} 
-                    isChecked={task.isChecked}/>
+                    isChecked={task.isChecked}
+                    onDeleteTask={deleteTask}/>
                 ))}
             </div>
         </div>

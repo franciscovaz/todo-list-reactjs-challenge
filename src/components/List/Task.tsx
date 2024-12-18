@@ -3,11 +3,14 @@ import styles from './Task.module.css';
 import { Check, Trash } from 'phosphor-react';
 
 
-export function Task({description, isChecked}: TaskItem) {
+interface TaskProps extends TaskItem {
+    onDeleteTask: (id: number) => void;
+}
+
+export function Task({id, description, isChecked, onDeleteTask}: TaskProps) {
 
     function handleRemoveTask() {
-        console.log('Remove task!');
-        
+        onDeleteTask(id); 
     }
 
     const checkboxCheckedClassname = isChecked
