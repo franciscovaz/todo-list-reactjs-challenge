@@ -15,19 +15,7 @@ export interface TaskItem {
 }
 
 function App() {
-  const mockedTasks: TaskItem[] = [
-    {
-      id: 1,
-      description: 'Esta é a minha primeira tarefa',
-      isChecked: true,
-    },
-    {
-      id: 2,
-      description: 'Esta é a minha segunda tarefa',
-      isChecked: false,
-    }
-  ]
-  const [tasksList, setTasksList] = useState(mockedTasks);
+  const [tasksList, setTasksList] = useState<TaskItem[]>([]);
 
   const [createdTasks, setCreatedTasks] = useState(tasksList.length);
 
