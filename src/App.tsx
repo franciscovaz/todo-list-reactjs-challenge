@@ -55,6 +55,19 @@ function App() {
 
     setTasksList(tasksListWithoutDeletedOne)
   }
+
+  function toggleTask(id: number, isChecked: boolean) {    
+    const tasksListWithNewCheckState = tasksList.map((task) => {
+      if(task.id === id) {
+        return { ...task, isChecked }
+      }
+
+      return { ...task };
+    })
+
+    setTasksList(tasksListWithNewCheckState);
+  }
+
   return (
     <main>
       <Header />
@@ -77,7 +90,9 @@ function App() {
                     id={task.id} 
                     description={task.description} 
                     isChecked={task.isChecked}
-                    onDeleteTask={deleteTask}/>
+                    onDeleteTask={deleteTask}
+                    onToggleTask={toggleTask}
+                  />
                 ))}
             </div>
         </div>

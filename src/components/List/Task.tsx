@@ -5,12 +5,16 @@ import { Check, Trash } from 'phosphor-react';
 
 interface TaskProps extends TaskItem {
     onDeleteTask: (id: number) => void;
+    onToggleTask: (id: number, isChecked: boolean) => void;
 }
 
-export function Task({id, description, isChecked, onDeleteTask}: TaskProps) {
-
+export function Task({ id, description, isChecked, onDeleteTask, onToggleTask }: TaskProps) {
     function handleRemoveTask() {
         onDeleteTask(id); 
+    }
+
+    function handleToggleTask() {        
+        onToggleTask(id, !isChecked);
     }
 
     const checkboxCheckedClassname = isChecked
@@ -23,7 +27,7 @@ export function Task({id, description, isChecked, onDeleteTask}: TaskProps) {
         return (
             <div className={styles.container}>
               <div>
-                <label htmlFor="checkbox">
+                <label htmlFor="checkbox" onClick={handleToggleTask}>
                   <input type="checkbox" readOnly checked={isChecked} />
                   <span className={`${styles.checkbox} ${checkboxCheckedClassname}`}>
                     { isChecked && <Check size={12} />}
