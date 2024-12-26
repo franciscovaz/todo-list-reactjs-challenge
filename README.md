@@ -31,6 +31,7 @@ We are able to add new tasks, mark the tasks as done or not and also we are able
 
 - [React](https://reactjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
+- [CSS Modules](https://www.w3schools.com/react/react_css_styling.asp)
 - [Phosphor Icons](https://phosphoricons.com/)
 - [Vite](https://vite.dev/)
 - [Date-fns](https://date-fns.org/)
